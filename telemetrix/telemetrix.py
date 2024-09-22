@@ -1220,10 +1220,10 @@ class Telemetrix(threading.Thread):
                 self.shutdown()
             raise RuntimeError('stepper_set_max_speed: Invalid motor_id.')
 
-        if not 1 < max_speed <= 1000:
-            if self.shutdown_on_exception:
-                self.shutdown()
-            raise RuntimeError('stepper_set_max_speed: Speed range is 1 - 1000.')
+        # if not 1 < max_speed <= 1000:
+        #     if self.shutdown_on_exception:
+        #         self.shutdown()
+        #     raise RuntimeError('stepper_set_max_speed: Speed range is 1 - 1000.')
 
         self.stepper_info_list[motor_id]['max_speed'] = max_speed
         max_speed_msb = (max_speed & 0xff00) >> 8
@@ -1304,10 +1304,10 @@ class Telemetrix(threading.Thread):
                 self.shutdown()
             raise RuntimeError('stepper_set_speed: Invalid motor_id.')
 
-        if not -1000 <= speed <= 1000:
-            if self.shutdown_on_exception:
-                self.shutdown()
-            raise RuntimeError('stepper_set_speed: speed range is -1000 to 1000')
+        # if not -1000 <= speed <= 1000:
+        #     if self.shutdown_on_exception:
+        #         self.shutdown()
+        #     raise RuntimeError('stepper_set_speed: speed range is -1000 to 1000')
 
         if speed < 0:
             polarity = 1
